@@ -295,24 +295,27 @@ button:hover {
 .div-padre-promociones{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    margin-left: 5%;
-    margin-right: 5%;
     justify-self: center;
     gap: 1rem;
-
-    div{
-        background-color: white;
-        border-radius: 1rem;
-        text-align: center;
-        width: 200px;        
-    }
-    .div-promocion{
-        background-color: rgb(50, 50, 255);
-        color: white;
-        height: 8%;
-        border-radius: 1rem 1rem 0 0;
-    }
+    text-align: center;
+    width: 50%;
 }
+
+.div-hijo-prom{
+    background-color: white;
+    border-radius: 1rem;
+    text-align: center;
+    width: 200px;
+}
+    
+.div-promocion{
+    background-color: rgb(50, 50, 255);
+    color: white;
+    height: 7%;
+    border-radius: 1rem 1rem 0 0;
+ }
+
+
 .button-promociones{
     background-color: rgb(255, 78, 78); 
     color: white;
@@ -333,7 +336,7 @@ height: 30px;
 width: 90px;
 cursor: pointer;
 margin-bottom: 20px;
-margin-top: -10px;
+margin-top: 15px;
 }
 .div-buscar-ordenar{
     display: flex;
