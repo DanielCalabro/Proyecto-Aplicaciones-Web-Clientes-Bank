@@ -294,7 +294,7 @@ newProduct12.appendChild(buttonP.cloneNode(true));
 products.appendChild(newProduct12);
 
 /*----------------------------------------------------------------*/
-
+newProduct13.setAttribute("class","div-hijo-prom");
 
 
 
