@@ -3,339 +3,117 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 // traigo el elemento padre donde van a ir los productos
-const products = document.querySelector('.div-padre-promociones');
-// creo los elementos hijos que van a ir dentro del padre
-const newProduct1 = document.createElement('div');
-const newProduct2 = document.createElement('div');
-const newProduct3 = document.createElement('div');
-const newProduct4 = document.createElement('div');
-const newProduct5 = document.createElement('div');
-const newProduct6 = document.createElement('div');
-const newProduct7 = document.createElement('div');
-const newProduct8 = document.createElement('div');
-const newProduct9 = document.createElement('div');
-const newProduct10 = document.createElement('div');
-const newProduct11 = document.createElement('div');
+const productsDomElement = document.querySelector('.div-padre-promociones');
+
+const listPromosProduc = [
+    {name: 'Ahorro Indumentaria', price: 1600, img: './img/Prom.indum.png'},
+    {nmae: 'Ahorro Combustible', price: 1200, img: './img/prom.naft.png'},
+    {name: 'Ahorrro Restaurant', price: 1200, img: './img/prom.resto.png'},
+    {name:'Ahorro Supermercados', price: 1200, img: './img/prom.super.png'},
+    {name: 'Ahorro Peluqueria', price: 1200, img: './img/prom.pelu.png'},
+    {name: 'Ahorro Farmacia', price: 800, img: './img/prom.farm.png'},
+    {name: 'Ahorro Jugueteria', price: 1000, img: './img/prom.jug.png'},
+    {name: 'Ahorro Veterinaria', price: 700, img: './img/prom.vete.png'},
+]
+
+function createPromoProduct(productDesc){
+    
+    const newProductInicial = document.createElement('div');
+    newProductInicial.setAttribute("class","div-hijo-prom");
+
+    const br = document.createElement('br');
+
+    const img1 = document.createElement('img');
+    img1.setAttribute("src", productDesc.img);
+    img1.setAttribute("alt",productDesc.name);
+    img1.setAttribute("width","200px");
+
+    const newName = document.createElement('p');
+    newName.setAttribute("class","product-name");
+    newName.innerText = productDesc.name;
+
+    const newPrice = document.createElement('h3');
+    newPrice.innerText = `Precio: $${productDesc.price}.00`;
+
+    const button = document.createElement('button');
+    button.setAttribute("class","button-promociones");
+    button.textContent = "Agregar";
+
+    newProductInicial.appendChild(br);
+    newProductInicial.appendChild(img1);
+    newProductInicial.appendChild(newName);
+    newProductInicial.appendChild(newPrice);
+    newProductInicial.appendChild(button);
+
+    return newProductInicial;
+}
+
+listPromosProduc.forEach( (productDesc) => {
+    const newPromoProduct = createPromoProduct(productDesc);
+    productsDomElement.appendChild(newPromoProduct);
+} );
 
-const newProduct13 = document.createElement('div');
-const newProduct14 = document.createElement('div');
-const newProduct15 = document.createElement('div');
-const newProduct16 = document.createElement('div');
-const newProduct17 = document.createElement('div');
-const newProduct18 = document.createElement('div');
-const newProduct19 = document.createElement('div');
-const newProduct20 = document.createElement('div');
-const newProduct21 = document.createElement('div');
-const newProduct22 = document.createElement('div');
-const newProduct23 = document.createElement('div');
-const newProduct24 = document.createElement('div');
-
-/*----------------------------------------------------------------*/
-// les asigno la clase correspondiente a cada uno
-newProduct1.setAttribute("class","div-hijo-prom");
-
-const br = document.createElement('br');
-
-const img1 = document.createElement('img');
-img1.setAttribute("src","./img/Prom.indum.png");
-img1.setAttribute("alt","indumentaria");
-img1.setAttribute("width","200px");
-
-const text1 = document.createTextNode("Ahorro Indumentaria");
-
-const h3_1 = document.createElement('h3');
-h3_1.textContent = "Desde 1.600 Puntos";
-
-const button = document.createElement('button');
-button.setAttribute("class","button-promociones");
-button.textContent = "Agregar";
-
-newProduct1.appendChild(br);
-newProduct1.appendChild(img1);
-newProduct1.appendChild(text1);
-newProduct1.appendChild(h3_1);
-newProduct1.appendChild(button);
-
-products.appendChild(newProduct1);
-
-/*----------------------------------------------------------------*/
-newProduct2.setAttribute("class","div-hijo-prom");
-
-const img2 = document.createElement('img');
-img2.setAttribute("src","./img/prom.naft.png");
-img2.setAttribute("alt","nafta");
-img2.setAttribute("width","200px");
-
-const text2 = document.createTextNode("Ahorro Nafta");
-
-const h3_2 = document.createElement('h3');
-h3_2.textContent = "Desde 2.200 Puntos";
-
-newProduct2.appendChild(br.cloneNode());
-newProduct2.appendChild(img2);
-newProduct2.appendChild(text2);
-newProduct2.appendChild(h3_2);
-newProduct2.appendChild(button.cloneNode(true));
-
-products.appendChild(newProduct2);
-
-/*----------------------------------------------------------------*/
-newProduct3.setAttribute("class","div-hijo-prom");
-
-const img3 = document.createElement('img');
-img3.setAttribute("src","./img/prom.resto.png");
-img3.setAttribute("alt","restaurant");
-img3.setAttribute("width","200px");
-
-const text3 = document.createTextNode("Ahorro Restaurant");
-
-const h3_3 = document.createElement('h3');
-h3_3.textContent = "Desde 1.200 Puntos";
-
-newProduct3.appendChild(br.cloneNode());
-newProduct3.appendChild(img3);
-newProduct3.appendChild(text3);
-newProduct3.appendChild(h3_3);
-newProduct3.appendChild(button.cloneNode(true));
-
-
-products.appendChild(newProduct3);
-
-/*----------------------------------------------------------------*/
-
-newProduct4.setAttribute("class","div-hijo-prom");
-
-const img4 = document.createElement('img');
-img4.setAttribute("src","./img/prom.super.png");
-img4.setAttribute("alt","supermercado");
-img4.setAttribute("width","200px");
-const text4 = document.createTextNode("Ahorro Supermercado");
-
-const h3_4 = document.createElement('h3');
-h3_4.textContent = "Desde 1.200 Puntos";
-
-newProduct4.appendChild(br.cloneNode());
-newProduct4.appendChild(img4);
-newProduct4.appendChild(text4);
-newProduct4.appendChild(h3_4);
-newProduct4.appendChild(button.cloneNode(true));
-
-products.appendChild(newProduct4);
-
-/*----------------------------------------------------------------*/
-
-newProduct5.setAttribute("class","div-hijo-prom");
-
-const img5 = document.createElement('img');
-img5.setAttribute("src","./img/prom.pelu.png");
-img5.setAttribute("alt","peluqueria");
-img5.setAttribute("width","200px");
-const text5 = document.createTextNode("Ahorro Peluquería");
-
-const h3_5 = document.createElement('h3');
-h3_5.textContent = "Desde 1.100 Puntos";
-
-newProduct5.appendChild(br.cloneNode());
-newProduct5.appendChild(img5);
-newProduct5.appendChild(text5);
-newProduct5.appendChild(h3_5);
-newProduct5.appendChild(button.cloneNode(true));
-
-products.appendChild(newProduct5);
-
-/*----------------------------------------------------------------*/
-
-newProduct6.setAttribute("class","div-hijo-prom");
-
-const img6 = document.createElement('img');
-img6.setAttribute("src","./img/prom.farm.png");
-img6.setAttribute("alt","farmacia");
-img6.setAttribute("width","200px");
-const text6 = document.createTextNode("Ahorro Farmacia");
-
-const h3_6 = document.createElement('h3');
-h3_6.textContent = "Desde 800 Puntos";
-
-newProduct6.appendChild(br.cloneNode());
-newProduct6.appendChild(img6);
-newProduct6.appendChild(text6);
-newProduct6.appendChild(h3_6);
-newProduct6.appendChild(button.cloneNode(true));
-
-products.appendChild(newProduct6);
-
-/*----------------------------------------------------------------*/
-
-newProduct7.setAttribute("class","div-hijo-prom");
-
-const img7 = document.createElement('img');
-
-img7.setAttribute("src","./img/prom.jug.png");
-img7.setAttribute("alt","jugueteria");
-img7.setAttribute("width","200px");
-const text7 = document.createTextNode("Ahorro Juguetería");
-const h3_7 = document.createElement('h3');
-h3_7.textContent = "Desde 1.000 Puntos";
-
-newProduct7.appendChild(br.cloneNode());
-newProduct7.appendChild(img7);
-newProduct7.appendChild(text7);
-newProduct7.appendChild(h3_7);
-newProduct7.appendChild(button.cloneNode(true));
-
-products.appendChild(newProduct7);
-
-/*----------------------------------------------------------------*/
-
-newProduct8.setAttribute("class","div-hijo-prom");
-
-const img8 = document.createElement('img');
-img8.setAttribute("src","./img/prom.vete.png");
-img8.setAttribute("alt","veterinaria");
-img8.setAttribute("width","200px");
-const text8 = document.createTextNode("Ahorro Veterinaria");
-const h3_8 = document.createElement('h3');
-h3_8.textContent = "Desde 700 Puntos";
-
-newProduct8.appendChild(br.cloneNode());
-newProduct8.appendChild(img8);
-newProduct8.appendChild(text8);
-newProduct8.appendChild(h3_8);
-newProduct8.appendChild(button.cloneNode(true));
-
-products.appendChild(newProduct8);
-
-/*----------------------------------------------------------------*/
-
-newProduct9.setAttribute("class","div-hijo-prom");
-
-const div= document.createElement('div'); //Creo el div de promocion
-div.setAttribute("class","div-promocion"); //aplico la clase
-const textProm = document.createTextNode("promocion"); //Creo el texto
-div.appendChild(textProm);  //Agrego el texto al div
-
-const img9 = document.createElement('img');
-img9.setAttribute("src","./img/desc.talad.png");
-img9.setAttribute("alt","taladro");
-img9.setAttribute("width","200px");
-const text9 = document.createTextNode("Taladro Percutor Black+Decker");
-const h3_9 = document.createElement('h3');
-h3_9.textContent = "62.095 Puntos";
-
-const buttonP = document.createElement('button');
-buttonP.setAttribute("class","button-prom2");
-buttonP.textContent = "Agregar";
-
-newProduct9.appendChild(div);
-newProduct9.appendChild(img9);
-newProduct9.appendChild(text9);
-newProduct9.appendChild(h3_9);
-newProduct9.appendChild(buttonP);
-
-products.appendChild(newProduct9);
-
-/*----------------------------------------------------------------*/
-newProduct10.setAttribute("class","div-hijo-prom");
-
-const img10 = document.createElement('img');   
-img10.setAttribute("src","./img/promo.tele.png");
-img10.setAttribute("alt","televisor");
-img10.setAttribute("width","200px");
-const text10 = document.createTextNode("Tv Led Smart 50 pulgadas Philips 4k Borderless Con...");
-const h3_10 = document.createElement('h3');
-h3_10.textContent = "88.480 Puntos";
-
-newProduct10.appendChild(div.cloneNode(true));
-newProduct10.appendChild(img10);
-newProduct10.appendChild(text10);
-newProduct10.appendChild(h3_10);
-newProduct10.appendChild(buttonP.cloneNode(true));
-
-products.appendChild(newProduct10);
-
-/*----------------------------------------------------------------*/
-
-newProduct11.setAttribute("class","div-hijo-prom");
-
-const img11 = document.createElement('img');
-img11.setAttribute("src","./img/promo.tele2.png");
-img11.setAttribute("alt","televisor");
-img11.setAttribute("width","200px");
-const text11 = document.createTextNode("Tv Smart 43 pulgadas Full Hd Google Tv Philips");
-const h3_11 = document.createElement('h3');
-h3_11.textContent = "61.680 Puntos";
-
-newProduct11.appendChild(div.cloneNode(true));
-newProduct11.appendChild(img11);
-newProduct11.appendChild(text11);
-newProduct11.appendChild(h3_11);
-newProduct11.appendChild(buttonP.cloneNode(true));
-
-products.appendChild(newProduct11);
-
-/*----------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------*/
 
 const listProducts = [
-    {name: 'Product 1', price: 1000, img: './img/promo.reloj.png'},
-    {name: 'Product 2', price: 2000, img: './img/promo.tele.png'},
-    {name: 'Product 3', price: 3000, img: './img/promo.tele2.png'},
-    {name: 'Product 4', price: 4000, img :'./img/promo.reloj.png'},
-    {name: 'Product 5', price: 5000, img: './img/promo.esc.png'},
-    {name: 'Product 6', price: 6000, img: './img/descuentos.png'},
-    {name: 'Product 7', price: 7000, img: './img/licuadora.png'},
-    {name: 'Product 8', price: 8000, img: './img/juego.png'},
-    {name: 'Product 9', price: 9000, img: './img/paleta.png'},
-    {name: 'Product 10', price: 10000, img: './img/hielo.png'},
-    {name: 'Product 11', price: 11000, img: './img/calefactor2.png'},
-    {name: 'Product 12', price: 12000, img: './img/juguera.png'},
-    {name: 'Product 13', price: 13000, img: './img/perfume.png'},
-    {name: 'Product 14', price: 14000, img: './img/batidora.png'},
-    {name: 'Product 15', price: 15000, img: './img/valija.png'},
-    {name: 'Product 16', price: 16000, img: './img/cama.png'},
-    {name: 'Product 17', price: 17000},
-    {name: 'Product 18', price: 18000},
-    {name: 'Product 19', price: 19000},
-    {name: 'Product 20', price: 20000},
-    {name: 'Product 21', price: 21000},
-    {name: 'Product 22', price: 22000},
-    {name: 'Product 23', price: 23000},
-    {name: 'Product 24', price: 24000}
+    {name: 'Smartwatch Garmin Forerunner 55', price: 1000, img: './img/promo.reloj.png'},
+    {name: 'Tv Led Smart 50" Philips 4k Borderless Con...', price: 2000, img: './img/promo.tele.png'},
+    {name: 'Tv Smart 43" Full Hd Google Tv Philips', price: 3000, img: './img/promo.tele2.png'},
+    {name: 'Taladro Atornillador', price: 4000, img: './img/desc.talad.png'},
+    {name: 'Escalera 5 posiciones Con Plataformas', price: 5000, img: './img/promo.esc.png'},
+    {name: 'Tv Snart 32" Hd Philips con Google Tv', price: 6000, img: './img/descuentos.png'},
+    {name: 'Licuadora y procesadora Nutrix Pro', price: 7000, img: './img/licuadora.png'},
+    {name: 'Multi Consola Portátil', price: 8000, img: './img/juego.png'},
+    {name: 'Paleta de Paddle Elite Pro', price: 9000, img: './img/paleta.png'},
+    {name: 'Fábrica de Hielo Nutrix', price: 10000, img: './img/hielo.png'},
+    {name: 'Hongo Calefactor A Gas', price: 11000, img: './img/calefactor2.png'},
+    {name: 'Juguera Cold Pess Juicer Nutrix', price: 12000, img: './img/juguera.png'},
+    {name: 'Perfume Polo Blue Edt 75ml.For Him ', price: 13000, img: './img/perfume.png'},
+    {name: 'Batidora De Mesa Daewoo ', price: 14000, img: './img/batidora.png'},
+    {name: 'Valija Negra Con Expansor 28 ', price: 15000, img: './img/valija.png'},
+    {name: 'Edredon Modelo Plumon Medida King', price: 16000, img: './img/cama.png'},
 ]
 
 function createProduct(product){
 
-    const newProduct12 = document.createElement('div');
-newProduct12.setAttribute("class","div-hijo-prom");
+    const newProduct = document.createElement('div');
+    newProduct.setAttribute("class","div-hijo-prom");
 
-const img12 = document.createElement('img');  
-img12.setAttribute("src",product.img);
-img12.setAttribute("alt",product.name);
-img12.setAttribute("width","200px");
+    const divPromociones = document.createElement('div');
+    divPromociones.setAttribute("class","div-promocion");
+    divPromociones.innerText = "Promociones";
 
-const newPName = document.createElement('p');
-newPName.setAttribute("class","product-name");
-newPName.innerText = product.name;
+    const img12 = document.createElement('img');  
+    img12.setAttribute("src",product.img);
+    img12.setAttribute("alt",product.name);
+    img12.setAttribute("width","200px");
 
-const newPPrice = document.createElement('h3');
-newPPrice.innerText = `Precio: $${product.price}.00 puntos`;
+    const newPName = document.createElement('p');
+    newPName.setAttribute("class","product-name");
+    newPName.innerText = product.name;
 
-newProduct12.appendChild(div.cloneNode(true));
-newProduct12.appendChild(img12);
-newProduct12.appendChild(newPName);
-newProduct12.appendChild(newPPrice);
-newProduct12.appendChild(buttonP.cloneNode(true));
+    const newPPrice = document.createElement('h3');
+    newPPrice.innerText = `Precio: $${product.price}.00`;
 
-return newProduct12;
+    const buttonP = document.createElement('button');
+    buttonP.setAttribute("class","button-prom2");
+    buttonP.textContent = "Agregar";
 
+    newProduct.appendChild(divPromociones);
+    newProduct.appendChild(img12);
+    newProduct.appendChild(newPName);
+    newProduct.appendChild(newPPrice);
+    newProduct.appendChild(buttonP);
+
+    return newProduct;
 }
 
 
 listProducts.forEach( (product) => {
     const newProduct = createProduct(product);
-    products.appendChild(newProduct);
+    productsDomElement.appendChild(newProduct);
 } );
 
 
