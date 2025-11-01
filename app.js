@@ -16,7 +16,7 @@ const newProduct8 = document.createElement('div');
 const newProduct9 = document.createElement('div');
 const newProduct10 = document.createElement('div');
 const newProduct11 = document.createElement('div');
-const newProduct12 = document.createElement('div');
+
 const newProduct13 = document.createElement('div');
 const newProduct14 = document.createElement('div');
 const newProduct15 = document.createElement('div');
@@ -275,27 +275,153 @@ products.appendChild(newProduct11);
 
 /*----------------------------------------------------------------*/
 
+
+/*----------------------------------------------------------------*/
+
+const listProducts = [
+    {name: 'Product 1', price: 1000, img: './img/promo.reloj.png'},
+    {name: 'Product 2', price: 2000, img: './img/promo.tele.png'},
+    {name: 'Product 3', price: 3000, img: './img/promo.tele2.png'},
+    {name: 'Product 4', price: 4000, img :'./img/promo.reloj.png'},
+    {name: 'Product 5', price: 5000, img: './img/promo.esc.png'},
+    {name: 'Product 6', price: 6000, img: './img/descuentos.png'},
+    {name: 'Product 7', price: 7000, img: './img/licuadora.png'},
+    {name: 'Product 8', price: 8000, img: './img/juego.png'},
+    {name: 'Product 9', price: 9000, img: './img/paleta.png'},
+    {name: 'Product 10', price: 10000, img: './img/hielo.png'},
+    {name: 'Product 11', price: 11000, img: './img/calefactor2.png'},
+    {name: 'Product 12', price: 12000, img: './img/juguera.png'},
+    {name: 'Product 13', price: 13000, img: './img/perfume.png'},
+    {name: 'Product 14', price: 14000, img: './img/batidora.png'},
+    {name: 'Product 15', price: 15000, img: './img/valija.png'},
+    {name: 'Product 16', price: 16000, img: './img/cama.png'},
+    {name: 'Product 17', price: 17000},
+    {name: 'Product 18', price: 18000},
+    {name: 'Product 19', price: 19000},
+    {name: 'Product 20', price: 20000},
+    {name: 'Product 21', price: 21000},
+    {name: 'Product 22', price: 22000},
+    {name: 'Product 23', price: 23000},
+    {name: 'Product 24', price: 24000}
+]
+
+function createProduct(product){
+
+    const newProduct12 = document.createElement('div');
 newProduct12.setAttribute("class","div-hijo-prom");
 
 const img12 = document.createElement('img');  
-img12.setAttribute("src","./img/promo.reloj.png");
-img12.setAttribute("alt","reloj");
+img12.setAttribute("src",product.img);
+img12.setAttribute("alt",product.name);
 img12.setAttribute("width","200px");
-const text12 = document.createTextNode("Smartwatch Garmin Forerunner 55");
-const h3_12 = document.createElement('h3');
-h3_12.textContent = "47.470 puntos";
+
+const newPName = document.createElement('p');
+newPName.setAttribute("class","product-name");
+newPName.innerText = product.name;
+
+const newPPrice = document.createElement('h3');
+newPPrice.innerText = `Precio: $${product.price}.00 puntos`;
 
 newProduct12.appendChild(div.cloneNode(true));
 newProduct12.appendChild(img12);
-newProduct12.appendChild(text12);
-newProduct12.appendChild(h3_12);
+newProduct12.appendChild(newPName);
+newProduct12.appendChild(newPPrice);
 newProduct12.appendChild(buttonP.cloneNode(true));
 
-products.appendChild(newProduct12);
+return newProduct12;
+
+}
+
+
+listProducts.forEach( (product) => {
+    const newProduct = createProduct(product);
+    products.appendChild(newProduct);
+} );
+
+
+/*------------------------------------------------------------------------ */
+
+    const buttons = document.querySelectorAll('.button-promociones, .button-prom2');
+    console.log(buttons);
+
+    buttons.forEach( (button) => {
+        button.addEventListener('click', () => {
+            alert("Producto agregado al carrito");
+        });
+    });
+
+
+
+
 
 /*----------------------------------------------------------------*/
-newProduct13.setAttribute("class","div-hijo-prom");
+/*
+const objeto={
+    nombre:"Monitor",
+    precio: 300,
+    devolverIva: function() {
+        console.log( this.precio)
+    }
+}
+objeto.devolverIva();
 
+const arreglo=[1,2,3,4,5];
+arreglo.forEach( (num) => console.log(num) );
+
+const nuevoArreglo= [];
+arreglo.forEach( (numero) => {
+    nuevoArreglo.push(numero + 5);
+} );
+
+console.log("nuevo arreglo usando ForEach: ",nuevoArreglo);
+                    numero que recibe del arreglo => numero del arreglo + 10
+const arregloMapeado = arreglo.map( (numero) => numero + 10 );
+
+console.log("arreglo usando Map: ",arregloMapeado);
+*/
+/*------------------ */
+/*
+const arregloFiltrado = arreglo.filter( (numero) => numero > 3 );
+
+console.log("arreglo usando Filter: ",arregloFiltrado);
+
+const alumnos = [
+    {nombre: "Juan", edad: 20, dni: 12345678},
+    {nombre: "Ana", edad: 22, dni: 87654321},
+    {nombre: "Luis", edad: 19, dni: 11223344},
+    {nombre: "Maria", edad: 21, dni: 44332211}
+];
+
+const elementoBuscado = alumnos.find( (alumnos) => alumnos.edad === 20 );
+
+console.log("Elemento encontrado usando Find: ",elementoBuscado);
+
+const totalEdades = alumnos.reduce( (acumulador, alumno) => acumulador + alumno.edad, 0 );
+
+console.log("Total de edades usando Reduce: ",totalEdades);
+
+
+if(alumnos.length > 0){
+    console.log("El arreglo no esta vacio");
+} else {
+    console.log("El arreglo esta vacio");  
+}
+
+switch(elementoBuscado.edad){
+    case 18:
+        console.log("Es mayor de edad");
+        break;
+    case 20:
+        console.log("Tiene 20 años");
+        break;
+    case 25:
+        console.log("Tiene 25 años");
+        break;
+    default:
+        console.log("No se encontro la edad");
+}
+
+*/
 
 
 });
